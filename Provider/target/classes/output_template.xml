@@ -1,6 +1,0 @@
-<operation>
-    <name>addition</name>
-    <operand1>$operand1$</operand1>
-    <operand2>$operand2$</operand2>
-    <result>$result$</result>
-</operation>
