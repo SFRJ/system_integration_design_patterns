@@ -1,0 +1,10 @@
+
+Request url:
+http://localhost:8080/calculator?a=5&b=9
+Response:
+<operation>
+    <name>addition</name>
+    <operand1>5</operand1>
+    <operand2>9</operand2>
+    <result>14</result>
+</operation>

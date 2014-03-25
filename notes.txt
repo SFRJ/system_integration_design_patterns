@@ -1,0 +1,39 @@
+apply Tolerant Reader and API Examples to consumer, apply Consumer Driven Contracts to provider (API Examples can be used as an implementation detail)
+
+1.  provider publishes api examples
+1a. provider acceptance tests log request/response interactions to the filesystem
+1b. provider build creates and publishes a ZIP of request/responses on filesystem
+(this acts the Provider Contract for Consumer Driven Contracts)
+
+2. Consumer tolerant reader
+2a. consumer writes parser that extracts minimal amount of state
+2b. consumer tests parser using build-time dependency upon provider api examples
+
+3. consumer contract
+3a. consumer team tells the provider team about their parser behaviour
+(this acts as the Consumer Contract for Consumer Driven Contracts)
+
+3b. provider team plugs consumer parser behaviour into a unit test and verifies expectations against its own API Examples
+(this acts as the Consumer Driven Contracts)
+
+
+========================================================================================================
+========================================================================================================
+========================================================================================================
+
+Here just rephrasing how I understood it.
+
+[PART 1] This pattern starts from the provider. 
+ 1- The provider creates an example of a Request and a Response and sends it to the Consummer(via email,sms...)
+ 2- The consummer writes a parser based on the response. Tolerant reading(It is a client side pattern) will be used to parse.
+ 3- The xpath used in the parser will be "the contract" 
+ 4- The request will be used to know where the service is(maybe just a url) 
+
+[PART 2] 
+ 1- The consummers build(neither the consumer or provider) will publish the contract into the file system
+
+[PART 3]
+ 1- The Provider will take the contract from the contracts repository(once at the provider's side we will refer to it as consummer driven contract).
+ 2- The Provider will write a test using the contract, to do so, he will just fire the xpath specified in the contract to its own api examples.(Note, both sides end up with a copy of the API examples) 
+
+
